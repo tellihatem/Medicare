@@ -1,0 +1,11 @@
+# IDE and editor files
+.windsurf/
+
+# Images directory
+images/
+
+# Markdown files in root
+*.md
+
+# Keep this file from being ignored
+!README.md

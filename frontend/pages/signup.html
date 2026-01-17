@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medicare - Create your account for chronic disease monitoring">
+    <title>Medicare - Sign Up</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="auth-page">
+        <!-- Desktop: Left illustration panel -->
+        <div class="auth-illustration-panel desktop-only">
+            <div class="auth-illustration-content">
+                <svg class="auth-illustration-image" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background elements -->
+                    <circle cx="200" cy="150" r="100" fill="rgba(255,255,255,0.1)"/>
+                    
+                    <!-- Clipboard/Form illustration -->
+                    <rect x="130" y="60" width="140" height="180" rx="12" fill="white"/>
+                    <rect x="145" y="75" width="110" height="12" rx="4" fill="#E2E8F0"/>
+                    <rect x="145" y="95" width="80" height="8" rx="3" fill="#CBD5E1"/>
+                    <rect x="145" y="115" width="110" height="12" rx="4" fill="#E2E8F0"/>
+                    <rect x="145" y="135" width="90" height="8" rx="3" fill="#CBD5E1"/>
+                    <rect x="145" y="155" width="110" height="12" rx="4" fill="#E2E8F0"/>
+                    <rect x="145" y="175" width="70" height="8" rx="3" fill="#CBD5E1"/>
+                    
+                    <!-- Checkmarks -->
+                    <circle cx="155" cy="200" r="8" fill="#22C55E"/>
+                    <path d="M152 200 L154 202 L158 198" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <rect x="170" y="196" width="60" height="8" rx="3" fill="#22C55E" opacity="0.3"/>
+                    
+                    <!-- Floating elements -->
+                    <g transform="translate(290, 100)">
+                        <circle r="25" fill="rgba(255,255,255,0.2)"/>
+                        <path d="M-8 0 L-3 5 L8 -6" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    </g>
+                    
+                    <g transform="translate(80, 130)">
+                        <rect width="45" height="45" rx="10" fill="rgba(255,255,255,0.15)"/>
+                        <circle cx="22.5" cy="18" r="8" stroke="white" stroke-width="2" fill="none"/>
+                        <path d="M12 35 Q22.5 28 33 35" stroke="white" stroke-width="2" fill="none"/>
+                    </g>
+                    
+                    <!-- Shield/Security icon -->
+                    <g transform="translate(300, 180)">
+                        <path d="M20 5 L35 12 L35 25 Q35 38 20 45 Q5 38 5 25 L5 12 Z" fill="rgba(255,255,255,0.2)"/>
+                        <path d="M15 25 L18 28 L26 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    </g>
+                </svg>
+                
+                <h2 class="auth-illustration-title">Join Medicare Today</h2>
+                <p class="auth-illustration-text">
+                    Start monitoring your health with personalized care and AI-powered insights.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right: Signup form -->
+        <div class="auth-container">
+            <!-- Mobile header -->
+            <header class="auth-header mobile-only">
+                <div class="auth-logo">
+                    <div class="auth-logo-icon">
+                        <i data-lucide="heart-pulse"></i>
+                    </div>
+                    <span class="auth-logo-text">Medicare</span>
+                </div>
+                <p class="auth-tagline">Create your account</p>
+            </header>
+
+            <!-- Signup card -->
+            <div class="auth-card fade-in">
+                <div class="auth-card-header">
+                    <h1 class="auth-card-title">Create Account</h1>
+                    <p class="auth-card-subtitle">Fill in your details to get started</p>
+                </div>
+
+                <form id="signupForm" class="auth-form" novalidate>
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="fullName" class="form-label required">Full Name</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <i data-lucide="user"></i>
+                            </span>
+                            <input 
+                                type="text" 
+                                id="fullName" 
+                                name="fullName"
+                                class="form-input" 
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label required">Email Address</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <i data-lucide="mail"></i>
+                            </span>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email"
+                                class="form-input" 
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Birth Date -->
+                    <div class="form-group">
+                        <label for="birthDate" class="form-label required">Date of Birth</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <i data-lucide="calendar"></i>
+                            </span>
+                            <input 
+                                type="date" 
+                                id="birthDate" 
+                                name="birthDate"
+                                class="form-input" 
+                                max=""
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password" class="form-label required">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <i data-lucide="lock"></i>
+                            </span>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password"
+                                class="form-input" 
+                                placeholder="Create a password"
+                                autocomplete="new-password"
+                                required
+                            >
+                            <button type="button" class="password-toggle input-action" aria-label="Toggle password visibility">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                        <p class="form-hint">Min 8 characters with uppercase, lowercase, and number</p>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label required">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <i data-lucide="lock"></i>
+                            </span>
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                name="confirmPassword"
+                                class="form-input" 
+                                placeholder="Confirm your password"
+                                autocomplete="new-password"
+                                required
+                            >
+                            <button type="button" class="password-toggle input-action" aria-label="Toggle password visibility">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Terms agreement -->
+                    <div class="form-group">
+                        <label class="form-check">
+                            <input type="checkbox" id="agreeTerms" class="form-check-input" required>
+                            <span class="form-check-label">
+                                I agree to the <a href="#" class="text-primary">Terms of Service</a> 
+                                and <a href="#" class="text-primary">Privacy Policy</a>
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-full btn-lg auth-submit">
+                        <i data-lucide="user-plus"></i>
+                        <span>Create Account</span>
+                    </button>
+                </form>
+
+                <!-- Login link -->
+                <p class="auth-footer">
+                    Already have an account? 
+                    <a href="login.html" class="auth-footer-link">Sign In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

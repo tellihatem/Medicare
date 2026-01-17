@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medicare - Doctor Dashboard">
+    <title>Medicare - Doctor Dashboard</title>
+    
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/doctor.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Desktop Sidebar - Doctor Version -->
+        <aside class="sidebar sidebar-doctor">
+            <div class="sidebar-brand">
+                <div class="sidebar-logo">
+                    <i data-lucide="heart-pulse"></i>
+                </div>
+                <span class="sidebar-title">Medicare</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="sidebar-nav-list">
+                    <li>
+                        <a href="doctor-dashboard.html" class="sidebar-nav-item active">
+                            <i data-lucide="layout-dashboard" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="doctor-patients.html" class="sidebar-nav-item">
+                            <i data-lucide="users" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Patients</span>
+                            <span class="notification-count">5</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="doctor-settings.html" class="sidebar-nav-item">
+                            <i data-lucide="settings" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <img src="../assets/images/doctor-avatar.svg" alt="Doctor" class="sidebar-user-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2220%22 fill=%22%237C3AED%22/%3E%3Ccircle cx=%2220%22 cy=%2215%22 r=%228%22 fill=%22%23FCD9B6%22/%3E%3Cellipse cx=%2220%22 cy=%2235%22 rx=%2212%22 ry=%228%22 fill=%22white%22/%3E%3C/svg%3E'">
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Dr. Sarah Smith</span>
+                        <span class="sidebar-user-role">Internal Medicine</span>
+                    </div>
+                    <button class="sidebar-logout" onclick="logout()" aria-label="Logout">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <header class="mobile-header mobile-only">
+                <h1 class="mobile-header-title">Dashboard</h1>
+                <div class="mobile-header-actions">
+                    <a href="doctor-patients.html" class="btn btn-ghost btn-icon notification-btn" aria-label="View pending reviews">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-count">5</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Welcome Section -->
+            <section class="welcome-card card fade-in" style="background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);">
+                <div class="welcome-card-content">
+                    <h2 class="welcome-card-title">Welcome, Dr. Smith!</h2>
+                    <p class="welcome-card-subtitle">You have 5 patients waiting for review today.</p>
+                </div>
+                <svg class="welcome-card-illustration" viewBox="0 0 160 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="80" cy="90" r="70" fill="rgba(255,255,255,0.1)"/>
+                    <rect x="50" y="60" width="60" height="80" rx="8" fill="white"/>
+                    <rect x="58" y="72" width="44" height="6" rx="2" fill="#E2E8F0"/>
+                    <rect x="58" y="84" width="30" height="4" rx="2" fill="#CBD5E1"/>
+                    <rect x="58" y="96" width="44" height="6" rx="2" fill="#E2E8F0"/>
+                    <rect x="58" y="108" width="35" height="4" rx="2" fill="#CBD5E1"/>
+                    <circle cx="65" cy="125" r="6" fill="#22C55E"/>
+                    <path d="M62 125 L64 127 L68 123" stroke="white" stroke-width="2" fill="none"/>
+                    <circle cx="120" cy="50" r="15" fill="rgba(255,255,255,0.2)"/>
+                    <circle cx="35" cy="120" r="10" fill="rgba(255,255,255,0.15)"/>
+                </svg>
+            </section>
+
+            <!-- Stats Overview -->
+            <section class="stats-overview fade-in" style="animation-delay: 0.1s;">
+                <div class="card stat-overview-card">
+                    <div class="stat-overview-value">12</div>
+                    <div class="stat-overview-label">Total Patients</div>
+                </div>
+                <div class="card stat-overview-card">
+                    <div class="stat-overview-value" style="color: var(--warning-500);">5</div>
+                    <div class="stat-overview-label">Pending Reviews</div>
+                </div>
+                <div class="card stat-overview-card">
+                    <div class="stat-overview-value" style="color: var(--success-500);">7</div>
+                    <div class="stat-overview-label">Completed Today</div>
+                </div>
+                <div class="card stat-overview-card">
+                    <div class="stat-overview-value">28</div>
+                    <div class="stat-overview-label">This Month</div>
+                </div>
+            </section>
+
+            <!-- Patients Needing Review -->
+            <section class="section fade-in" style="animation-delay: 0.2s;">
+                <div class="section-header">
+                    <h3 class="section-title">Patients Needing Review</h3>
+                    <a href="doctor-patients.html" class="text-primary text-sm font-medium">View All</a>
+                </div>
+                
+                <div class="patient-list">
+                    <!-- Patient Card 1 - New submission -->
+                    <div class="card patient-card" onclick="location.href='doctor-review.html?id=p001'">
+                        <div class="patient-card-avatar">
+                            <img src="../assets/images/patient-1.svg" alt="John Doe" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22%3E%3Ccircle cx=%2224%22 cy=%2224%22 r=%2224%22 fill=%22%23DBEAFE%22/%3E%3Ccircle cx=%2224%22 cy=%2218%22 r=%2210%22 fill=%22%233B82F6%22/%3E%3Cellipse cx=%2224%22 cy=%2242%22 rx=%2216%22 ry=%2210%22 fill=%22%233B82F6%22/%3E%3C/svg%3E'">
+                            <span class="notification-dot"></span>
+                        </div>
+                        <div class="patient-card-info">
+                            <h4 class="patient-card-name">John Doe</h4>
+                            <p class="patient-card-meta">Blood Glucose Check • 2 hours ago</p>
+                        </div>
+                        <span class="badge badge-warning">New</span>
+                        <i data-lucide="chevron-right" class="patient-card-action"></i>
+                    </div>
+
+                    <!-- Patient Card 2 -->
+                    <div class="card patient-card" onclick="location.href='doctor-review.html?id=p002'">
+                        <div class="patient-card-avatar">
+                            <img src="../assets/images/patient-2.svg" alt="Jane Wilson" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22%3E%3Ccircle cx=%2224%22 cy=%2224%22 r=%2224%22 fill=%22%23FCE7F3%22/%3E%3Ccircle cx=%2224%22 cy=%2218%22 r=%2210%22 fill=%22%23EC4899%22/%3E%3Cellipse cx=%2224%22 cy=%2242%22 rx=%2216%22 ry=%2210%22 fill=%22%23EC4899%22/%3E%3C/svg%3E'">
+                            <span class="notification-dot"></span>
+                        </div>
+                        <div class="patient-card-info">
+                            <h4 class="patient-card-name">Jane Wilson</h4>
+                            <p class="patient-card-meta">Blood Pressure • 4 hours ago</p>
+                        </div>
+                        <span class="badge badge-warning">New</span>
+                        <i data-lucide="chevron-right" class="patient-card-action"></i>
+                    </div>
+
+                    <!-- Patient Card 3 -->
+                    <div class="card patient-card" onclick="location.href='doctor-review.html?id=p003'">
+                        <div class="patient-card-avatar">
+                            <img src="../assets/images/patient-3.svg" alt="Robert Chen" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22%3E%3Ccircle cx=%2224%22 cy=%2224%22 r=%2224%22 fill=%22%23D1FAE5%22/%3E%3Ccircle cx=%2224%22 cy=%2218%22 r=%2210%22 fill=%22%2310B981%22/%3E%3Cellipse cx=%2224%22 cy=%2242%22 rx=%2216%22 ry=%2210%22 fill=%22%2310B981%22/%3E%3C/svg%3E'">
+                            <span class="notification-dot"></span>
+                        </div>
+                        <div class="patient-card-info">
+                            <h4 class="patient-card-name">Robert Chen</h4>
+                            <p class="patient-card-meta">Heart Rate • 5 hours ago</p>
+                        </div>
+                        <span class="badge badge-warning">New</span>
+                        <i data-lucide="chevron-right" class="patient-card-action"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="section fade-in" style="animation-delay: 0.3s;">
+                <h3 class="section-title">Recent Activity</h3>
+                <div class="card">
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon report">
+                                <i data-lucide="file-check" style="width: 18px; height: 18px;"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="activity-title">Reviewed Emily Brown's checkup</p>
+                                <span class="activity-time">1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon prescription">
+                                <i data-lucide="pill" style="width: 18px; height: 18px;"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="activity-title">Prescription sent to Michael Lee</p>
+                                <span class="activity-time">3 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon checkup">
+                                <i data-lucide="clipboard-check" style="width: 18px; height: 18px;"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="activity-title">New submission from Sarah Johnson</p>
+                                <span class="activity-time">5 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Mobile Bottom Navigation - Doctor Version -->
+        <nav class="bottom-nav mobile-only">
+            <a href="doctor-dashboard.html" class="bottom-nav-item active">
+                <span class="bottom-nav-icon"><i data-lucide="layout-dashboard"></i></span>
+                <span class="bottom-nav-label">Dashboard</span>
+            </a>
+            <a href="doctor-patients.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">
+                    <i data-lucide="users"></i>
+                    <span class="notification-count">5</span>
+                </span>
+                <span class="bottom-nav-label">Patients</span>
+            </a>
+            <a href="doctor-settings.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="settings"></i></span>
+                <span class="bottom-nav-label">Settings</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="toast-container"></div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/doctor.js"></script>
+</body>
+</html>

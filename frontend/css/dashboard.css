@@ -1,0 +1,390 @@
+/* ==========================================================================
+   Medicare - Dashboard Styles
+   Patient and Doctor dashboard layouts
+   ========================================================================== */
+
+/* ==========================================================================
+   SECTION HEADER
+   ========================================================================== */
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+/* ==========================================================================
+   WELCOME CARD ENHANCEMENTS
+   ========================================================================== */
+
+.welcome-card {
+    margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .welcome-card {
+        min-height: 200px;
+    }
+    
+    .welcome-card-content {
+        max-width: 50%;
+    }
+    
+    .welcome-card-illustration {
+        width: 200px;
+        right: 10px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .welcome-card-illustration {
+        width: 240px;
+        right: 20px;
+    }
+}
+
+/* ==========================================================================
+   DOCTOR CARD
+   ========================================================================== */
+
+.doctor-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.doctor-card-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.doctor-card-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 3px solid var(--primary-100);
+}
+
+.doctor-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.doctor-card-name {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin: 0;
+}
+
+.doctor-card-specialty {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-500);
+    margin: 0;
+}
+
+.doctor-card-link {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--primary-600);
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.doctor-card-link:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   STAT CARDS GRID
+   ========================================================================== */
+
+.stat-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .stat-cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Stat card hover effect */
+.stat-card.card-clickable:hover {
+    border-color: var(--primary-200);
+}
+
+.stat-card.card-clickable:hover .stat-card-icon {
+    transform: scale(1.1);
+}
+
+.stat-card-icon {
+    transition: transform var(--transition-base);
+}
+
+/* ==========================================================================
+   QUICK ACTIONS
+   ========================================================================== */
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+@media (min-width: 640px) {
+    .quick-actions {
+        flex-direction: row;
+    }
+    
+    .quick-actions .btn {
+        flex: 1;
+    }
+}
+
+/* ==========================================================================
+   PATIENT LIST (for Doctor Dashboard)
+   ========================================================================== */
+
+.patient-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.patient-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    cursor: pointer;
+}
+
+.patient-card:hover {
+    background-color: var(--neutral-50);
+}
+
+.patient-card-avatar {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.patient-card-avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+}
+
+.patient-card-avatar .notification-dot {
+    top: 0;
+    right: 0;
+}
+
+.patient-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.patient-card-name {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--space-1);
+}
+
+.patient-card-meta {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-500);
+}
+
+.patient-card-action {
+    color: var(--neutral-400);
+}
+
+/* ==========================================================================
+   SEARCH BAR (Dashboard)
+   ========================================================================== */
+
+.dashboard-search {
+    position: relative;
+    margin-bottom: var(--space-6);
+}
+
+.dashboard-search-input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    padding-left: calc(var(--space-4) + 24px);
+    background-color: var(--neutral-0);
+    border: 2px solid var(--neutral-200);
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-base);
+    transition: all var(--transition-fast);
+}
+
+.dashboard-search-input:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 3px var(--primary-100);
+}
+
+.dashboard-search-icon {
+    position: absolute;
+    left: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--neutral-400);
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   NOTIFICATION INDICATOR IN SIDEBAR
+   ========================================================================== */
+
+.sidebar-nav-item {
+    position: relative;
+}
+
+.sidebar-nav-item .notification-count {
+    position: static;
+    margin-left: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+}
+
+/* ==========================================================================
+   STATS OVERVIEW (Doctor Dashboard)
+   ========================================================================== */
+
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .stats-overview {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.stat-overview-card {
+    text-align: center;
+    padding: var(--space-5);
+}
+
+.stat-overview-value {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-600);
+    margin-bottom: var(--space-1);
+}
+
+.stat-overview-label {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-500);
+}
+
+/* ==========================================================================
+   RECENT ACTIVITY
+   ========================================================================== */
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--neutral-100);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.activity-icon.checkup {
+    background-color: var(--secondary-100);
+    color: var(--secondary-600);
+}
+
+.activity-icon.report {
+    background-color: var(--success-100);
+    color: var(--success-600);
+}
+
+.activity-icon.prescription {
+    background-color: var(--warning-100);
+    color: var(--warning-500);
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-title {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--neutral-800);
+    margin-bottom: var(--space-1);
+}
+
+.activity-time {
+    font-size: var(--font-size-xs);
+    color: var(--neutral-400);
+}
+
+/* ==========================================================================
+   EMPTY STATE FOR DASHBOARD
+   ========================================================================== */
+
+.dashboard-empty {
+    text-align: center;
+    padding: var(--space-12) var(--space-6);
+    background-color: var(--neutral-50);
+    border-radius: var(--radius-xl);
+    border: 2px dashed var(--neutral-200);
+}
+
+.dashboard-empty-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-4);
+    color: var(--neutral-300);
+}
+
+.dashboard-empty-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-600);
+    margin-bottom: var(--space-2);
+}
+
+.dashboard-empty-text {
+    font-size: var(--font-size-base);
+    color: var(--neutral-500);
+    margin-bottom: var(--space-6);
+}

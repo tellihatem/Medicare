@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medicare - Account Settings">
+    <title>Medicare - Settings</title>
+    
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/checkup.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Desktop Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="sidebar-logo">
+                    <i data-lucide="heart-pulse"></i>
+                </div>
+                <span class="sidebar-title">Medicare</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="sidebar-nav-list">
+                    <li>
+                        <a href="dashboard.html" class="sidebar-nav-item">
+                            <i data-lucide="layout-dashboard" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="new-checkup.html" class="sidebar-nav-item">
+                            <i data-lucide="clipboard-plus" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">New Checkup</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="history.html" class="sidebar-nav-item">
+                            <i data-lucide="history" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Treatment History</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="sidebar-nav-item active">
+                            <i data-lucide="settings" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <img src="../assets/images/patient-avatar.svg" alt="Patient" class="sidebar-user-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2220%22 fill=%22%23E2E8F0%22/%3E%3Ccircle cx=%2220%22 cy=%2215%22 r=%228%22 fill=%22%2394A3B8%22/%3E%3Cellipse cx=%2220%22 cy=%2235%22 rx=%2212%22 ry=%228%22 fill=%22%2394A3B8%22/%3E%3C/svg%3E'">
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">John Doe</span>
+                        <span class="sidebar-user-role">Patient</span>
+                    </div>
+                    <button class="sidebar-logout" onclick="logout()" aria-label="Logout">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <header class="mobile-header mobile-only">
+                <h1 class="mobile-header-title">Settings</h1>
+            </header>
+
+            <!-- Page Header -->
+            <div class="page-header fade-in">
+                <h1 class="page-title desktop-only">Account Settings</h1>
+                <p class="page-subtitle">Manage your profile and preferences</p>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="card fade-in" style="animation-delay: 0.1s;">
+                <!-- Avatar Section -->
+                <div class="settings-avatar-section">
+                    <img src="../assets/images/patient-avatar.svg" alt="Profile Picture" class="settings-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23E2E8F0%22/%3E%3Ccircle cx=%2250%22 cy=%2240%22 r=%2220%22 fill=%22%2394A3B8%22/%3E%3Cellipse cx=%2250%22 cy=%2285%22 rx=%2230%22 ry=%2220%22 fill=%22%2394A3B8%22/%3E%3C/svg%3E'">
+                    <div class="settings-avatar-actions">
+                        <button class="btn btn-secondary btn-sm">
+                            <i data-lucide="upload"></i>
+                            Upload Photo
+                        </button>
+                        <button class="btn btn-ghost btn-sm">
+                            <i data-lucide="trash-2"></i>
+                            Remove
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Personal Information -->
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Personal Information</h3>
+                    <form id="settingsForm" class="settings-form">
+                        <div class="grid grid-2">
+                            <div class="form-group">
+                                <label for="settingsName" class="form-label required">Full Name</label>
+                                <input type="text" id="settingsName" class="form-input" value="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsEmail" class="form-label required">Email Address</label>
+                                <div class="flex gap-2 items-center">
+                                    <input type="email" id="settingsEmail" class="form-input" value="patient@medicare.com" required disabled>
+                                    <button type="button" class="btn btn-secondary btn-sm" id="changeEmailBtn">
+                                        <i data-lucide="edit-2"></i>
+                                        Change
+                                    </button>
+                                </div>
+                                <p class="form-hint">Changing email requires verification</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-2">
+                            <div class="form-group">
+                                <label for="settingsBirthDate" class="form-label">Date of Birth</label>
+                                <input type="date" id="settingsBirthDate" class="form-input" value="1981-03-15">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsAge" class="form-label">Age</label>
+                                <input type="text" id="settingsAge" class="form-input form-input-readonly" value="45 years" readonly disabled>
+                                <p class="form-hint">Calculated from birth date</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-2">
+                            <div class="form-group">
+                                <label for="settingsWeight" class="form-label">Weight (kg)</label>
+                                <input type="number" id="settingsWeight" class="form-input" value="75" min="20" max="300" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsHeight" class="form-label">Height (cm)</label>
+                                <input type="number" id="settingsHeight" class="form-input" value="175" min="50" max="250">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="settingsPhone" class="form-label">Phone Number</label>
+                            <input type="tel" id="settingsPhone" class="form-input" placeholder="+1 (555) 123-4567">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Medical Information (Set by Doctor - Read Only) -->
+                <div class="settings-section">
+                    <h3 class="settings-section-title">
+                        Medical Information
+                        <span class="badge badge-info" style="margin-left: 8px; font-size: 10px;">Set by Doctor</span>
+                    </h3>
+                    <p class="form-hint mb-4">This information is managed by your doctor. Contact them for updates.</p>
+                    <div class="form-group">
+                        <label for="conditions" class="form-label">Chronic Conditions</label>
+                        <textarea id="conditions" class="form-input form-textarea form-input-readonly" readonly disabled>Hypertension, Type 2 Diabetes</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="medications" class="form-label">Current Medications</label>
+                        <textarea id="medications" class="form-input form-textarea form-input-readonly" readonly disabled>Metformin 500mg - twice daily
+Lisinopril 10mg - once daily</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="allergies" class="form-label">Allergies</label>
+                        <input type="text" id="allergies" class="form-input" value="Penicillin" placeholder="Enter your allergies (comma separated)">
+                        <p class="form-hint">You can update your allergies anytime</p>
+                    </div>
+                </div>
+
+                <!-- Save Button -->
+                <div class="settings-form-actions">
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" form="settingsForm" class="btn btn-primary">
+                        <i data-lucide="save"></i>
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+
+            <!-- Security Section -->
+            <div class="card fade-in mt-6" style="animation-delay: 0.2s;">
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Security</h3>
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h4 class="font-semibold">Password</h4>
+                            <p class="text-sm text-muted">Last changed 30 days ago</p>
+                        </div>
+                        <button class="btn btn-secondary btn-sm">
+                            <i data-lucide="key"></i>
+                            Change Password
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="card fade-in mt-6" style="animation-delay: 0.3s;">
+                <div class="danger-zone">
+                    <h3 class="danger-zone-title">Danger Zone</h3>
+                    <p class="danger-zone-text">
+                        Once you delete your account, there is no going back. Please be certain.
+                    </p>
+                    <button class="btn btn-danger btn-sm">
+                        <i data-lucide="trash-2"></i>
+                        Delete Account
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav class="bottom-nav mobile-only">
+            <a href="dashboard.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="layout-dashboard"></i></span>
+                <span class="bottom-nav-label">Home</span>
+            </a>
+            <a href="new-checkup.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="clipboard-plus"></i></span>
+                <span class="bottom-nav-label">Checkup</span>
+            </a>
+            <a href="history.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="history"></i></span>
+                <span class="bottom-nav-label">History</span>
+            </a>
+            <a href="settings.html" class="bottom-nav-item active">
+                <span class="bottom-nav-icon"><i data-lucide="settings"></i></span>
+                <span class="bottom-nav-label">Settings</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="toast-container"></div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/patient.js"></script>
+    <script>
+        // Settings form submission
+        onDOMReady(() => {
+            const form = document.getElementById('settingsForm');
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const submitBtn = document.querySelector('.settings-form-actions .btn-primary');
+                    setButtonLoading(submitBtn, true);
+                    
+                    // Simulate save
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    
+                    setButtonLoading(submitBtn, false);
+                    showToast('Settings saved successfully!', 'success');
+                });
+            }
+
+            // Change email button handler
+            const changeEmailBtn = document.getElementById('changeEmailBtn');
+            if (changeEmailBtn) {
+                changeEmailBtn.addEventListener('click', () => {
+                    const newEmail = prompt('Enter your new email address:');
+                    if (newEmail && newEmail.trim()) {
+                        if (validateEmail(newEmail.trim())) {
+                            showToast('Verification email sent to ' + newEmail.trim(), 'info');
+                        } else {
+                            showToast('Please enter a valid email address', 'error');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

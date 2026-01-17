@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medicare - Patient Dashboard">
+    <title>Medicare - Dashboard</title>
+    
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Desktop Sidebar Navigation -->
+        <aside class="sidebar">
+            <!-- Logo -->
+            <div class="sidebar-brand">
+                <div class="sidebar-logo">
+                    <i data-lucide="heart-pulse"></i>
+                </div>
+                <span class="sidebar-title">Medicare</span>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="sidebar-nav">
+                <ul class="sidebar-nav-list">
+                    <li>
+                        <a href="dashboard.html" class="sidebar-nav-item active">
+                            <i data-lucide="layout-dashboard" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="new-checkup.html" class="sidebar-nav-item">
+                            <i data-lucide="clipboard-plus" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">New Checkup</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="history.html" class="sidebar-nav-item">
+                            <i data-lucide="history" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Treatment History</span>
+                            <span class="notification-count">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="sidebar-nav-item">
+                            <i data-lucide="settings" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- User Profile Footer -->
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <img src="../assets/images/patient-avatar.svg" alt="Patient" class="sidebar-user-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2220%22 fill=%22%23E2E8F0%22/%3E%3Ccircle cx=%2220%22 cy=%2215%22 r=%228%22 fill=%22%2394A3B8%22/%3E%3Cellipse cx=%2220%22 cy=%2235%22 rx=%2212%22 ry=%228%22 fill=%22%2394A3B8%22/%3E%3C/svg%3E'">
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">John Doe</span>
+                        <span class="sidebar-user-role">Patient</span>
+                    </div>
+                    <button class="sidebar-logout" onclick="logout()" aria-label="Logout">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <header class="mobile-header mobile-only">
+                <h1 class="mobile-header-title">Dashboard</h1>
+                <div class="mobile-header-actions">
+                    <a href="history.html" class="btn btn-ghost btn-icon notification-btn" aria-label="View reviewed treatments">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-count">3</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Welcome Card with Illustration -->
+            <section class="welcome-card card fade-in">
+                <div class="welcome-card-content">
+                    <h2 class="welcome-card-title">Good Morning, John!</h2>
+                    <p class="welcome-card-subtitle">Track your health and stay on top of your wellness journey.</p>
+                </div>
+                <!-- Doctor Illustration SVG -->
+                <svg class="welcome-card-illustration" viewBox="0 0 160 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Body -->
+                    <ellipse cx="80" cy="175" rx="40" ry="8" fill="rgba(255,255,255,0.2)"/>
+                    <path d="M55 100 L55 160 L105 160 L105 100 C105 85 92 75 80 75 C68 75 55 85 55 100Z" fill="white"/>
+                    <!-- Stethoscope -->
+                    <path d="M75 95 Q60 105 65 125" stroke="#3B82F6" stroke-width="3" fill="none"/>
+                    <circle cx="65" cy="130" r="6" stroke="#3B82F6" stroke-width="3" fill="none"/>
+                    <!-- Head -->
+                    <circle cx="80" cy="55" r="28" fill="#FCD9B6"/>
+                    <!-- Hair -->
+                    <path d="M55 45 Q55 25 80 25 Q105 25 105 45 L105 38 Q105 22 80 22 Q55 22 55 38Z" fill="#4A3728"/>
+                    <!-- Face -->
+                    <circle cx="70" cy="52" r="3" fill="#4A3728"/>
+                    <circle cx="90" cy="52" r="3" fill="#4A3728"/>
+                    <path d="M73 65 Q80 70 87 65" stroke="#4A3728" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <!-- Medical cross -->
+                    <rect x="90" y="95" width="14" height="14" rx="3" fill="#22C55E"/>
+                    <path d="M94 99 L94 106 M90.5 102.5 L97.5 102.5" stroke="white" stroke-width="2"/>
+                    <!-- Floating elements -->
+                    <circle cx="130" cy="40" r="12" fill="rgba(255,255,255,0.3)"/>
+                    <circle cx="25" cy="80" r="8" fill="rgba(255,255,255,0.2)"/>
+                    <rect x="120" y="100" width="20" height="20" rx="5" fill="rgba(255,255,255,0.15)"/>
+                </svg>
+            </section>
+
+            <!-- Doctor Profile Card -->
+            <section class="section fade-in" style="animation-delay: 0.1s;">
+                <h3 class="section-title">Your Doctor</h3>
+                <div class="doctor-card card">
+                    <div class="doctor-card-content">
+                        <img src="../assets/images/doctor-avatar.svg" alt="Dr. Sarah Smith" class="doctor-card-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 60 60%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%2230%22 fill=%22%237C3AED%22/%3E%3Ccircle cx=%2230%22 cy=%2222%22 r=%2210%22 fill=%22%23FCD9B6%22/%3E%3Cellipse cx=%2230%22 cy=%2248%22 rx=%2218%22 ry=%2212%22 fill=%22white%22/%3E%3C/svg%3E'">
+                        <div class="doctor-card-info">
+                            <h4 class="doctor-card-name">Dr. Sarah Smith</h4>
+                            <p class="doctor-card-specialty">Internal Medicine</p>
+                            <span class="badge badge-success">
+                                <i data-lucide="circle" style="width: 8px; height: 8px; fill: currentColor;"></i>
+                                Available
+                            </span>
+                        </div>
+                    </div>
+                    <button class="btn btn-ghost btn-sm doctor-card-link" onclick="viewDoctorProfile()">
+                        <i data-lucide="user"></i>
+                        View Profile
+                    </button>
+                </div>
+            </section>
+
+            <!-- Last Checkup Summary -->
+            <section class="section fade-in" style="animation-delay: 0.2s;">
+                <div class="section-header">
+                    <h3 class="section-title">Last Checkup</h3>
+                    <span class="text-sm text-muted">Jan 10, 2026</span>
+                </div>
+                
+                <div class="grid grid-2">
+                    <!-- Heart Rate Card -->
+                    <div class="card stat-card card-clickable">
+                        <div class="stat-card-icon heart">
+                            <i data-lucide="heart-pulse"></i>
+                        </div>
+                        <div class="stat-card-value">72 <span class="text-sm font-normal">bpm</span></div>
+                        <div class="stat-card-label">Heart Rate</div>
+                        <span class="stat-card-status optimal">
+                            <i data-lucide="check-circle" style="width: 12px; height: 12px;"></i>
+                            Optimal
+                        </span>
+                    </div>
+
+                    <!-- Blood Pressure Card -->
+                    <div class="card stat-card card-clickable">
+                        <div class="stat-card-icon pressure">
+                            <i data-lucide="activity"></i>
+                        </div>
+                        <div class="stat-card-value">120/80 <span class="text-sm font-normal">mmHg</span></div>
+                        <div class="stat-card-label">Blood Pressure</div>
+                        <span class="stat-card-status optimal">
+                            <i data-lucide="check-circle" style="width: 12px; height: 12px;"></i>
+                            Normal
+                        </span>
+                    </div>
+
+                    <!-- Blood Glucose Card -->
+                    <div class="card stat-card card-clickable">
+                        <div class="stat-card-icon glucose">
+                            <i data-lucide="droplets"></i>
+                        </div>
+                        <div class="stat-card-value">95 <span class="text-sm font-normal">mg/dL</span></div>
+                        <div class="stat-card-label">Blood Glucose</div>
+                        <span class="stat-card-status optimal">
+                            <i data-lucide="check-circle" style="width: 12px; height: 12px;"></i>
+                            Normal
+                        </span>
+                    </div>
+
+                    <!-- Body Temperature Card -->
+                    <div class="card stat-card card-clickable">
+                        <div class="stat-card-icon temperature">
+                            <i data-lucide="thermometer"></i>
+                        </div>
+                        <div class="stat-card-value">36.6 <span class="text-sm font-normal">°C</span></div>
+                        <div class="stat-card-label">Temperature</div>
+                        <span class="stat-card-status optimal">
+                            <i data-lucide="check-circle" style="width: 12px; height: 12px;"></i>
+                            Normal
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="section fade-in" style="animation-delay: 0.3s;">
+                <h3 class="section-title">Quick Actions</h3>
+                <div class="quick-actions">
+                    <a href="new-checkup.html" class="btn btn-primary btn-lg">
+                        <i data-lucide="plus-circle"></i>
+                        <span>New Checkup</span>
+                    </a>
+                    <a href="history.html" class="btn btn-secondary btn-lg">
+                        <i data-lucide="file-text"></i>
+                        <span>View Reports</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav class="bottom-nav mobile-only">
+            <a href="dashboard.html" class="bottom-nav-item active">
+                <span class="bottom-nav-icon">
+                    <i data-lucide="layout-dashboard"></i>
+                </span>
+                <span class="bottom-nav-label">Home</span>
+            </a>
+            <a href="new-checkup.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">
+                    <i data-lucide="clipboard-plus"></i>
+                </span>
+                <span class="bottom-nav-label">Checkup</span>
+            </a>
+            <a href="history.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">
+                    <i data-lucide="history"></i>
+                    <span class="notification-count">3</span>
+                </span>
+                <span class="bottom-nav-label">History</span>
+            </a>
+            <a href="settings.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon">
+                    <i data-lucide="settings"></i>
+                </span>
+                <span class="bottom-nav-label">Settings</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/patient.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medicare - Patient Review">
+    <title>Medicare - Patient Review</title>
+    
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/doctor.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Desktop Sidebar -->
+        <aside class="sidebar sidebar-doctor">
+            <div class="sidebar-brand">
+                <div class="sidebar-logo">
+                    <i data-lucide="heart-pulse"></i>
+                </div>
+                <span class="sidebar-title">Medicare</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="sidebar-nav-list">
+                    <li>
+                        <a href="doctor-dashboard.html" class="sidebar-nav-item">
+                            <i data-lucide="layout-dashboard" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="doctor-patients.html" class="sidebar-nav-item active">
+                            <i data-lucide="users" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Patients</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="doctor-settings.html" class="sidebar-nav-item">
+                            <i data-lucide="settings" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <img src="../assets/images/doctor-avatar.svg" alt="Doctor" class="sidebar-user-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2220%22 fill=%22%237C3AED%22/%3E%3Ccircle cx=%2220%22 cy=%2215%22 r=%228%22 fill=%22%23FCD9B6%22/%3E%3Cellipse cx=%2220%22 cy=%2235%22 rx=%2212%22 ry=%228%22 fill=%22white%22/%3E%3C/svg%3E'">
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Dr. Sarah Smith</span>
+                        <span class="sidebar-user-role">Internal Medicine</span>
+                    </div>
+                    <button class="sidebar-logout" onclick="logout()" aria-label="Logout">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Back Navigation -->
+            <div class="review-header fade-in">
+                <a href="doctor-dashboard.html" class="review-back">
+                    <i data-lucide="arrow-left" style="width: 20px; height: 20px;"></i>
+                    Back to Dashboard
+                </a>
+            </div>
+
+            <!-- Patient Info Header -->
+            <section class="patient-info-header fade-in" style="animation-delay: 0.1s;">
+                <img src="../assets/images/patient-1.svg" alt="John Doe" class="patient-info-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 72 72%22%3E%3Ccircle cx=%2236%22 cy=%2236%22 r=%2236%22 fill=%22%23DBEAFE%22/%3E%3Ccircle cx=%2236%22 cy=%2228%22 r=%2214%22 fill=%22%233B82F6%22/%3E%3Cellipse cx=%2236%22 cy=%2260%22 rx=%2222%22 ry=%2214%22 fill=%22%233B82F6%22/%3E%3C/svg%3E'">
+                <div class="patient-info-details">
+                    <h1 class="patient-info-name">John Doe</h1>
+                    <div class="patient-info-meta">
+                        <span><i data-lucide="calendar" style="width: 14px; height: 14px;"></i> Age: 45</span>
+                        <span><i data-lucide="activity" style="width: 14px; height: 14px;"></i> Hypertension, Type 2 Diabetes</span>
+                    </div>
+                </div>
+                <span class="badge badge-warning">Pending Review</span>
+            </section>
+
+            <!-- Patient Medical Details -->
+            <section class="patient-medical-details card fade-in" style="animation-delay: 0.12s;">
+                <h3 class="patient-details-title">
+                    <i data-lucide="user-circle" style="width: 20px; height: 20px;"></i>
+                    Patient Information
+                </h3>
+                <div class="patient-details-grid">
+                    <div class="patient-detail-item">
+                        <span class="patient-detail-label">Date of Birth</span>
+                        <span class="patient-detail-value">March 15, 1981</span>
+                    </div>
+                    <div class="patient-detail-item">
+                        <span class="patient-detail-label">Age</span>
+                        <span class="patient-detail-value">45 years</span>
+                    </div>
+                    <div class="patient-detail-item">
+                        <span class="patient-detail-label">Weight</span>
+                        <span class="patient-detail-value">75 kg</span>
+                    </div>
+                    <div class="patient-detail-item">
+                        <span class="patient-detail-label">Height</span>
+                        <span class="patient-detail-value">175 cm</span>
+                    </div>
+                    <div class="patient-detail-item">
+                        <span class="patient-detail-label">Blood Type</span>
+                        <span class="patient-detail-value">O+</span>
+                    </div>
+                    <div class="patient-detail-item">
+                        <span class="patient-detail-label">BMI</span>
+                        <span class="patient-detail-value">24.5 (Normal)</span>
+                    </div>
+                </div>
+                <div class="patient-details-extended">
+                    <div class="patient-detail-block">
+                        <span class="patient-detail-label">
+                            <i data-lucide="alert-triangle" style="width: 14px; height: 14px; color: var(--error-500);"></i>
+                            Allergies
+                        </span>
+                        <span class="patient-detail-value allergy-tag">Penicillin</span>
+                    </div>
+                    <div class="patient-detail-block">
+                        <span class="patient-detail-label">
+                            <i data-lucide="pill" style="width: 14px; height: 14px; color: var(--primary-500);"></i>
+                            Current Medications
+                        </span>
+                        <div class="patient-medications-list">
+                            <span class="medication-tag">Metformin 500mg - twice daily</span>
+                            <span class="medication-tag">Lisinopril 10mg - once daily</span>
+                        </div>
+                    </div>
+                    <div class="patient-detail-block">
+                        <span class="patient-detail-label">
+                            <i data-lucide="heart" style="width: 14px; height: 14px; color: var(--warning-500);"></i>
+                            Chronic Conditions
+                        </span>
+                        <div class="patient-conditions-list">
+                            <span class="condition-tag">Hypertension</span>
+                            <span class="condition-tag">Type 2 Diabetes</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submitted Data -->
+            <section class="submitted-data fade-in" style="animation-delay: 0.15s;">
+                <h2 class="submitted-data-title">
+                    <i data-lucide="clipboard-list" style="width: 20px; height: 20px;"></i>
+                    Submitted Measurements
+                    <span class="text-sm text-muted font-normal ml-2">Jan 11, 2026 - 08:30 AM</span>
+                </h2>
+                <div class="submitted-data-grid">
+                    <div class="card data-card">
+                        <div class="data-card-icon stat-card-icon heart">
+                            <i data-lucide="heart-pulse"></i>
+                        </div>
+                        <div class="data-card-value">72 bpm</div>
+                        <div class="data-card-label">Heart Rate</div>
+                    </div>
+                    <div class="card data-card">
+                        <div class="data-card-icon stat-card-icon pressure">
+                            <i data-lucide="activity"></i>
+                        </div>
+                        <div class="data-card-value">120/80</div>
+                        <div class="data-card-label">Blood Pressure</div>
+                    </div>
+                    <div class="card data-card">
+                        <div class="data-card-icon stat-card-icon glucose">
+                            <i data-lucide="droplets"></i>
+                        </div>
+                        <div class="data-card-value">110 mg/dL</div>
+                        <div class="data-card-label">Blood Glucose</div>
+                    </div>
+                    <div class="card data-card">
+                        <div class="data-card-icon stat-card-icon temperature">
+                            <i data-lucide="thermometer"></i>
+                        </div>
+                        <div class="data-card-value">36.6°C</div>
+                        <div class="data-card-label">Temperature</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Report -->
+            <section class="ai-report fade-in" style="animation-delay: 0.2s;">
+                <div class="ai-report-header">
+                    <h2 class="ai-report-title">
+                        <i data-lucide="bot" style="width: 20px; height: 20px;"></i>
+                        AI-Generated Report
+                    </h2>
+                    <span class="ai-report-badge">
+                        <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i>
+                        AI Analysis
+                    </span>
+                </div>
+                <div class="card">
+                    <div class="ai-report-content">
+                        <p><strong>Blood Glucose Analysis:</strong></p>
+                        <ul>
+                            <li>Fasting blood glucose level: 110 mg/dL</li>
+                            <li>This reading is slightly above the optimal fasting range (70-100 mg/dL)</li>
+                            <li>Classified as "pre-diabetic range" according to ADA guidelines</li>
+                        </ul>
+                        
+                        <p><strong>Cardiovascular Indicators:</strong></p>
+                        <ul>
+                            <li>Heart rate: 72 bpm (Normal range)</li>
+                            <li>Blood pressure: 120/80 mmHg (Optimal)</li>
+                        </ul>
+                        
+                        <p><strong>AI Recommendations:</strong></p>
+                        <ul>
+                            <li>Monitor glucose levels more frequently</li>
+                            <li>Consider dietary modifications to reduce carbohydrate intake</li>
+                            <li>Schedule follow-up in 2 weeks to reassess glucose levels</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Doctor Review Form -->
+            <section class="doctor-review-form fade-in" style="animation-delay: 0.25s;">
+                <div class="card">
+                    <h2 class="review-form-title">
+                        <i data-lucide="stethoscope" style="width: 20px; height: 20px;"></i>
+                        Your Medical Review
+                    </h2>
+                    
+                    <form id="doctorReviewForm" novalidate>
+                        <div class="form-group">
+                            <label for="doctorNotes" class="form-label required">Doctor's Notes</label>
+                            <textarea 
+                                id="doctorNotes" 
+                                class="form-input review-textarea" 
+                                placeholder="Enter your medical assessment, recommendations, and any adjustments to the AI report..."
+                                required
+                            >The AI analysis is accurate. Patient's blood glucose is slightly elevated at 110 mg/dL, indicating pre-diabetic state.
+
+Recommendations:
+1. Continue current Metformin dosage (500mg twice daily)
+2. Reduce refined carbohydrate intake
+3. Increase daily physical activity to 30 minutes
+4. Monitor fasting glucose weekly and log results
+5. Schedule follow-up appointment in 2 weeks
+
+Blood pressure and heart rate are within normal limits. Continue Lisinopril 10mg daily.</textarea>
+                        </div>
+
+                        <!-- Prescription Section -->
+                        <div class="prescription-section">
+                            <h3 class="prescription-title">
+                                <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
+                                Prescription (Optional)
+                            </h3>
+                            
+                            <div class="form-group">
+                                <label for="prescriptionNotes" class="form-label">Prescription Notes</label>
+                                <textarea 
+                                    id="prescriptionNotes" 
+                                    class="form-input" 
+                                    rows="3"
+                                    placeholder="Enter prescription details or medication changes..."
+                                >Continue current medications:
+- Metformin 500mg - twice daily with meals
+- Lisinopril 10mg - once daily in the morning</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Upload Prescription Document</label>
+                                <div class="file-upload-area">
+                                    <i data-lucide="upload-cloud" class="file-upload-icon"></i>
+                                    <p class="file-upload-text">
+                                        <strong>Click to upload</strong> or drag and drop<br>
+                                        PDF or Word document (max 5MB)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="review-form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="history.back()">
+                                <i data-lucide="x"></i>
+                                Cancel
+                            </button>
+                            <button type="button" class="btn btn-outline">
+                                <i data-lucide="save"></i>
+                                Save Draft
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i data-lucide="send"></i>
+                                Submit Review
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Treatment History -->
+            <section class="treatment-history-section fade-in" style="animation-delay: 0.3s;">
+                <h2 class="section-title">
+                    <i data-lucide="history" style="width: 20px; height: 20px;"></i>
+                    Previous Treatment History
+                </h2>
+                <div class="card">
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Jan 5, 2026</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Blood Glucose Monitoring</h4>
+                                <p class="timeline-text">
+                                    Fasting glucose: 95 mg/dL - within normal range. Continued current medication regimen.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Dec 28, 2025</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Blood Pressure Check</h4>
+                                <p class="timeline-text">
+                                    BP: 125/82 mmHg - slightly elevated. Recommended reduced sodium intake.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">Dec 15, 2025</div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Regular Checkup</h4>
+                                <p class="timeline-text">
+                                    All vitals normal. Continued existing treatment plan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav class="bottom-nav mobile-only">
+            <a href="doctor-dashboard.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="layout-dashboard"></i></span>
+                <span class="bottom-nav-label">Dashboard</span>
+            </a>
+            <a href="doctor-patients.html" class="bottom-nav-item active">
+                <span class="bottom-nav-icon"><i data-lucide="users"></i></span>
+                <span class="bottom-nav-label">Patients</span>
+            </a>
+            <a href="doctor-settings.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="settings"></i></span>
+                <span class="bottom-nav-label">Settings</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="toast-container"></div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/doctor.js"></script>
+</body>
+</html>

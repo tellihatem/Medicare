@@ -1,0 +1,462 @@
+/* ==========================================================================
+   Medicare - Checkup Page Styles
+   Measurement cards and modal forms
+   ========================================================================== */
+
+/* ==========================================================================
+   CHECKUP GRID
+   ========================================================================== */
+
+.checkup-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+@media (min-width: 640px) {
+    .checkup-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .checkup-grid {
+        gap: var(--space-6);
+    }
+}
+
+/* ==========================================================================
+   MEASUREMENT CARDS
+   ========================================================================== */
+
+.measurement-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all var(--transition-smooth);
+}
+
+.measurement-card:hover {
+    border-color: var(--primary-200);
+    transform: translateY(-4px);
+}
+
+.measurement-card:active {
+    transform: translateY(-2px);
+}
+
+/* Measurement Card Icon */
+.measurement-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform var(--transition-base);
+}
+
+.measurement-card:hover .measurement-card-icon {
+    transform: scale(1.1);
+}
+
+.measurement-card-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.measurement-card-icon.heart {
+    background: linear-gradient(135deg, var(--error-100) 0%, var(--error-200) 100%);
+    color: var(--error-500);
+}
+
+.measurement-card-icon.pressure {
+    background: linear-gradient(135deg, var(--secondary-100) 0%, var(--secondary-200) 100%);
+    color: var(--secondary-600);
+}
+
+.measurement-card-icon.glucose {
+    background: linear-gradient(135deg, var(--success-100) 0%, var(--success-200) 100%);
+    color: var(--success-600);
+}
+
+.measurement-card-icon.temperature {
+    background: linear-gradient(135deg, var(--warning-100) 0%, var(--warning-200) 100%);
+    color: var(--warning-500);
+}
+
+/* Measurement Card Content */
+.measurement-card-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.measurement-card-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--space-1);
+}
+
+.measurement-card-desc {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-500);
+    margin: 0;
+}
+
+/* Measurement Card Arrow */
+.measurement-card-arrow {
+    color: var(--neutral-300);
+    transition: all var(--transition-base);
+}
+
+.measurement-card:hover .measurement-card-arrow {
+    color: var(--primary-500);
+    transform: translateX(4px);
+}
+
+/* Decorative Shape */
+.measurement-card-shape {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    opacity: 0.1;
+    transition: transform var(--transition-slow);
+}
+
+.measurement-card:hover .measurement-card-shape {
+    transform: scale(1.2);
+}
+
+.measurement-card-icon.heart + .measurement-card-content + .measurement-card-arrow + .measurement-card-shape {
+    background: var(--error-500);
+}
+
+.measurement-card-icon.pressure + .measurement-card-content + .measurement-card-arrow + .measurement-card-shape {
+    background: var(--secondary-500);
+}
+
+.measurement-card-icon.glucose + .measurement-card-content + .measurement-card-arrow + .measurement-card-shape {
+    background: var(--success-500);
+}
+
+.measurement-card-icon.temperature + .measurement-card-content + .measurement-card-arrow + .measurement-card-shape {
+    background: var(--warning-500);
+}
+
+/* ==========================================================================
+   MEASUREMENT MODAL ENHANCEMENTS
+   ========================================================================== */
+
+#measurementModal .modal-header {
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+}
+
+#measurementModal .modal-title {
+    display: flex;
+    align-items: center;
+}
+
+#measurementModal .modal-body {
+    padding-top: var(--space-6);
+}
+
+/* Input with unit suffix */
+.input-with-unit {
+    position: relative;
+}
+
+.input-with-unit .form-input {
+    padding-right: 60px;
+}
+
+.input-unit {
+    position: absolute;
+    right: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-400);
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   HISTORY PAGE STYLES
+   ========================================================================== */
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.history-card {
+    padding: var(--space-5);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all var(--transition-base);
+}
+
+.history-card:hover {
+    border-color: var(--primary-100);
+}
+
+.history-card.unread {
+    border-left: 4px solid var(--primary-500);
+    background-color: var(--primary-50);
+}
+
+.history-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
+}
+
+.history-card-date {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-500);
+}
+
+.history-card-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-900);
+    margin-bottom: var(--space-2);
+}
+
+.history-card-preview {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    margin-bottom: var(--space-4);
+    line-height: var(--line-height-relaxed);
+}
+
+.history-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+/* ==========================================================================
+   SETTINGS PAGE STYLES
+   ========================================================================== */
+
+.settings-section {
+    margin-bottom: var(--space-8);
+}
+
+.settings-section-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-800);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.settings-avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background-color: var(--neutral-50);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-6);
+}
+
+.settings-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 4px solid var(--primary-200);
+}
+
+.settings-avatar-actions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.settings-form-actions {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: flex-end;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--neutral-200);
+    margin-top: var(--space-4);
+}
+
+/* Danger Zone */
+.danger-zone {
+    border: 2px solid var(--error-200);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    background-color: var(--error-50);
+}
+
+.danger-zone-title {
+    color: var(--error-600);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-2);
+}
+
+.danger-zone-text {
+    color: var(--error-600);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-4);
+}
+
+/* ==========================================================================
+   HISTORY DETAIL MODAL
+   ========================================================================== */
+
+.detail-date {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--neutral-500);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-5);
+}
+
+.detail-section {
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--neutral-100);
+}
+
+.detail-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.detail-section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--neutral-700);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--space-3);
+}
+
+.detail-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+.detail-stat {
+    background-color: var(--neutral-50);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.detail-stat-label {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--neutral-500);
+    margin-bottom: var(--space-1);
+}
+
+.detail-stat-value {
+    display: block;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+}
+
+.detail-text {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--neutral-700);
+    margin: 0;
+}
+
+.detail-doctor {
+    font-size: var(--font-size-sm);
+    color: var(--primary-600);
+    font-weight: var(--font-weight-medium);
+    margin-top: var(--space-3);
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   DOCTOR PROFILE MODAL
+   ========================================================================== */
+
+.doctor-profile-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--neutral-100);
+}
+
+.doctor-profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 3px solid var(--primary-200);
+}
+
+.doctor-profile-name {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+    margin-bottom: var(--space-1);
+}
+
+.doctor-profile-specialty {
+    font-size: var(--font-size-base);
+    color: var(--neutral-500);
+    margin-bottom: var(--space-2);
+}
+
+.doctor-info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.doctor-info-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--neutral-700);
+}
+
+.doctor-info-item svg {
+    color: var(--primary-500);
+    flex-shrink: 0;
+}

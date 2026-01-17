@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medicare - Verify your email address">
+    <title>Medicare - Email Verification</title>
+    
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-container" style="width: 100%; max-width: 100%;">
+            <!-- Mobile header -->
+            <header class="auth-header">
+                <div class="auth-logo">
+                    <div class="auth-logo-icon">
+                        <i data-lucide="heart-pulse"></i>
+                    </div>
+                    <span class="auth-logo-text">Medicare</span>
+                </div>
+            </header>
+
+            <!-- OTP Verification card -->
+            <div class="auth-card fade-in">
+                <div class="forgot-illustration">
+                    <i data-lucide="mail-check"></i>
+                </div>
+                
+                <div class="auth-card-header">
+                    <h1 class="auth-card-title">Verify Your Email</h1>
+                    <p class="auth-card-subtitle">
+                        We've sent a 6-digit code to your email. Enter it below to verify your account.
+                    </p>
+                </div>
+
+                <!-- OTP Input -->
+                <div class="otp-container">
+                    <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 1">
+                    <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 2">
+                    <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 3">
+                    <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 4">
+                    <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 5">
+                    <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 6">
+                </div>
+
+                <!-- Demo hint -->
+                <div class="alert alert-info mb-4">
+                    <i data-lucide="info" class="alert-icon"></i>
+                    <div class="alert-content">
+                        <span class="text-sm">Demo code: <strong>123456</strong></span>
+                    </div>
+                </div>
+
+                <button id="verifyBtn" class="btn btn-primary btn-full btn-lg" disabled>
+                    <i data-lucide="check-circle"></i>
+                    <span>Verify Email</span>
+                </button>
+
+                <!-- Resend -->
+                <div class="otp-resend">
+                    <p class="otp-resend-text">
+                        Didn't receive the code? 
+                        <span class="otp-resend-link disabled">Resend <span class="otp-timer">(60s)</span></span>
+                    </p>
+                </div>
+
+                <p class="auth-footer">
+                    <a href="login.html" class="auth-footer-link">
+                        <i data-lucide="arrow-left" style="width: 16px; height: 16px; display: inline;"></i>
+                        Back to Login
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

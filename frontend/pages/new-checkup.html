@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medicare - Submit New Health Checkup">
+    <title>Medicare - New Checkup</title>
+    
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/checkup.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Desktop Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="sidebar-logo">
+                    <i data-lucide="heart-pulse"></i>
+                </div>
+                <span class="sidebar-title">Medicare</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="sidebar-nav-list">
+                    <li>
+                        <a href="dashboard.html" class="sidebar-nav-item">
+                            <i data-lucide="layout-dashboard" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="new-checkup.html" class="sidebar-nav-item active">
+                            <i data-lucide="clipboard-plus" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">New Checkup</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="history.html" class="sidebar-nav-item">
+                            <i data-lucide="history" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Treatment History</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="sidebar-nav-item">
+                            <i data-lucide="settings" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <img src="../assets/images/patient-avatar.svg" alt="Patient" class="sidebar-user-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2220%22 fill=%22%23E2E8F0%22/%3E%3Ccircle cx=%2220%22 cy=%2215%22 r=%228%22 fill=%22%2394A3B8%22/%3E%3Cellipse cx=%2220%22 cy=%2235%22 rx=%2212%22 ry=%228%22 fill=%22%2394A3B8%22/%3E%3C/svg%3E'">
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">John Doe</span>
+                        <span class="sidebar-user-role">Patient</span>
+                    </div>
+                    <button class="sidebar-logout" onclick="logout()" aria-label="Logout">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <header class="mobile-header mobile-only">
+                <h1 class="mobile-header-title">New Checkup</h1>
+                <div class="mobile-header-actions">
+                    <a href="dashboard.html" class="btn btn-ghost btn-icon" aria-label="Back to dashboard">
+                        <i data-lucide="home"></i>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Page Header -->
+            <div class="page-header fade-in">
+                <h1 class="page-title desktop-only">New Health Checkup</h1>
+                <p class="page-subtitle">Select a measurement type to record your health data</p>
+            </div>
+
+            <!-- Measurement Cards Grid -->
+            <section class="checkup-grid fade-in" style="animation-delay: 0.1s;">
+                <!-- Heart Rate Card -->
+                <div class="measurement-card card card-clickable" data-type="heartRate">
+                    <div class="measurement-card-icon heart">
+                        <i data-lucide="heart-pulse"></i>
+                    </div>
+                    <div class="measurement-card-content">
+                        <h3 class="measurement-card-title">Heart Rate</h3>
+                        <p class="measurement-card-desc">Measure your pulse in beats per minute</p>
+                    </div>
+                    <div class="measurement-card-arrow">
+                        <i data-lucide="chevron-right"></i>
+                    </div>
+                    <!-- Decorative shape -->
+                    <div class="measurement-card-shape"></div>
+                </div>
+
+                <!-- Blood Pressure Card -->
+                <div class="measurement-card card card-clickable" data-type="bloodPressure">
+                    <div class="measurement-card-icon pressure">
+                        <i data-lucide="activity"></i>
+                    </div>
+                    <div class="measurement-card-content">
+                        <h3 class="measurement-card-title">Blood Pressure</h3>
+                        <p class="measurement-card-desc">Record systolic and diastolic pressure</p>
+                    </div>
+                    <div class="measurement-card-arrow">
+                        <i data-lucide="chevron-right"></i>
+                    </div>
+                    <div class="measurement-card-shape"></div>
+                </div>
+
+                <!-- Blood Glucose Card -->
+                <div class="measurement-card card card-clickable" data-type="glucose">
+                    <div class="measurement-card-icon glucose">
+                        <i data-lucide="droplets"></i>
+                    </div>
+                    <div class="measurement-card-content">
+                        <h3 class="measurement-card-title">Blood Glucose</h3>
+                        <p class="measurement-card-desc">Track your blood sugar levels</p>
+                    </div>
+                    <div class="measurement-card-arrow">
+                        <i data-lucide="chevron-right"></i>
+                    </div>
+                    <div class="measurement-card-shape"></div>
+                </div>
+
+                <!-- Body Temperature Card -->
+                <div class="measurement-card card card-clickable" data-type="temperature">
+                    <div class="measurement-card-icon temperature">
+                        <i data-lucide="thermometer"></i>
+                    </div>
+                    <div class="measurement-card-content">
+                        <h3 class="measurement-card-title">Body Temperature</h3>
+                        <p class="measurement-card-desc">Check your body temperature</p>
+                    </div>
+                    <div class="measurement-card-arrow">
+                        <i data-lucide="chevron-right"></i>
+                    </div>
+                    <div class="measurement-card-shape"></div>
+                </div>
+            </section>
+
+            <!-- Info Card -->
+            <section class="section fade-in" style="animation-delay: 0.2s;">
+                <div class="alert alert-info">
+                    <i data-lucide="info" class="alert-icon"></i>
+                    <div class="alert-content">
+                        <div class="alert-title">How it works</div>
+                        <p class="text-sm mb-0">
+                            After submitting your measurements, our AI will generate a health report. 
+                            Your doctor will review it and provide personalized feedback.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav class="bottom-nav mobile-only">
+            <a href="dashboard.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="layout-dashboard"></i></span>
+                <span class="bottom-nav-label">Home</span>
+            </a>
+            <a href="new-checkup.html" class="bottom-nav-item active">
+                <span class="bottom-nav-icon"><i data-lucide="clipboard-plus"></i></span>
+                <span class="bottom-nav-label">Checkup</span>
+            </a>
+            <a href="history.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="history"></i></span>
+                <span class="bottom-nav-label">History</span>
+            </a>
+            <a href="settings.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="settings"></i></span>
+                <span class="bottom-nav-label">Settings</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Modal Backdrop -->
+    <div class="modal-backdrop"></div>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/patient.js"></script>
+</body>
+</html>

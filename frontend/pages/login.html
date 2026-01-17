@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medicare - Login to your chronic disease monitoring account">
+    <title>Medicare - Login</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="auth-page">
+        <!-- Desktop: Left illustration panel -->
+        <div class="auth-illustration-panel desktop-only">
+            <div class="auth-illustration-content">
+                <!-- Doctor illustration SVG -->
+                <svg class="auth-illustration-image" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background decorative elements -->
+                    <circle cx="200" cy="150" r="120" fill="rgba(255,255,255,0.1)"/>
+                    <circle cx="320" cy="80" r="40" fill="rgba(255,255,255,0.05)"/>
+                    <circle cx="80" cy="220" r="30" fill="rgba(255,255,255,0.05)"/>
+                    
+                    <!-- Doctor figure -->
+                    <ellipse cx="200" cy="280" rx="80" ry="15" fill="rgba(255,255,255,0.1)"/>
+                    
+                    <!-- Body -->
+                    <path d="M160 180 L160 250 L240 250 L240 180 C240 160 220 150 200 150 C180 150 160 160 160 180Z" fill="white"/>
+                    
+                    <!-- Lab coat details -->
+                    <path d="M170 180 L170 250" stroke="#E2E8F0" stroke-width="2"/>
+                    <path d="M230 180 L230 250" stroke="#E2E8F0" stroke-width="2"/>
+                    <circle cx="180" cy="200" r="4" fill="#7C3AED"/>
+                    <circle cx="180" cy="220" r="4" fill="#7C3AED"/>
+                    
+                    <!-- Stethoscope -->
+                    <path d="M195 170 Q180 180 185 200" stroke="#3B82F6" stroke-width="3" fill="none"/>
+                    <circle cx="185" cy="205" r="8" stroke="#3B82F6" stroke-width="3" fill="none"/>
+                    
+                    <!-- Head -->
+                    <circle cx="200" cy="120" r="40" fill="#FCD9B6"/>
+                    
+                    <!-- Hair -->
+                    <path d="M165 105 Q165 75 200 75 Q235 75 235 105 L235 95 Q235 70 200 70 Q165 70 165 95Z" fill="#4A3728"/>
+                    
+                    <!-- Face -->
+                    <circle cx="185" cy="115" r="4" fill="#4A3728"/>
+                    <circle cx="215" cy="115" r="4" fill="#4A3728"/>
+                    <path d="M190 135 Q200 142 210 135" stroke="#4A3728" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    
+                    <!-- Medical cross badge -->
+                    <rect x="215" cy="175" width="20" height="20" rx="4" fill="#22C55E"/>
+                    <path d="M220 180 L220 190 M215 185 L225 185" stroke="white" stroke-width="2"/>
+                    
+                    <!-- Floating medical icons -->
+                    <g transform="translate(290, 120)">
+                        <rect width="40" height="40" rx="8" fill="rgba(255,255,255,0.2)"/>
+                        <path d="M20 12 L20 28 M12 20 L28 20" stroke="white" stroke-width="2"/>
+                    </g>
+                    
+                    <g transform="translate(70, 100)">
+                        <rect width="35" height="35" rx="8" fill="rgba(255,255,255,0.15)"/>
+                        <circle cx="17.5" cy="17.5" r="10" stroke="white" stroke-width="2" fill="none"/>
+                        <path d="M17.5 12 L17.5 17.5 L22 20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </g>
+                    
+                    <g transform="translate(100, 50)">
+                        <circle r="20" cx="20" cy="20" fill="rgba(255,255,255,0.1)"/>
+                        <path d="M15 20 L18 23 L25 16" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                </svg>
+                
+                <h2 class="auth-illustration-title">Welcome to Medicare</h2>
+                <p class="auth-illustration-text">
+                    Your trusted companion for chronic disease monitoring and management.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right: Login form -->
+        <div class="auth-container">
+            <!-- Mobile header with logo -->
+            <header class="auth-header mobile-only">
+                <div class="auth-logo">
+                    <div class="auth-logo-icon">
+                        <i data-lucide="heart-pulse"></i>
+                    </div>
+                    <span class="auth-logo-text">Medicare</span>
+                </div>
+                <p class="auth-tagline">Chronic Disease Monitoring</p>
+            </header>
+
+            <!-- Login card -->
+            <div class="auth-card fade-in">
+                <div class="auth-card-header">
+                    <h1 class="auth-card-title">Sign In</h1>
+                    <p class="auth-card-subtitle">Enter your credentials to access your account</p>
+                </div>
+
+                <form id="loginForm" class="auth-form" novalidate>
+                    <!-- Email field -->
+                    <div class="form-group">
+                        <label for="email" class="form-label required">Email Address</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <i data-lucide="mail"></i>
+                            </span>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email"
+                                class="form-input" 
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Password field -->
+                    <div class="form-group">
+                        <label for="password" class="form-label required">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <i data-lucide="lock"></i>
+                            </span>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password"
+                                class="form-input" 
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+                            <button type="button" class="password-toggle input-action" aria-label="Toggle password visibility">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember me & Forgot password -->
+                    <div class="auth-remember">
+                        <label class="form-check">
+                            <input type="checkbox" id="rememberMe" class="form-check-input">
+                            <span class="form-check-label">Remember me</span>
+                        </label>
+                        <a href="forgot-password.html" class="auth-forgot-link">Forgot password?</a>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-full btn-lg auth-submit">
+                        <i data-lucide="log-in"></i>
+                        <span>Sign In</span>
+                    </button>
+                </form>
+
+                <!-- Demo credentials hint -->
+                <div class="alert alert-info mt-6">
+                    <i data-lucide="info" class="alert-icon"></i>
+                    <div class="alert-content">
+                        <div class="alert-title">Demo Accounts</div>
+                        <p class="text-sm mb-0">
+                            Patient: patient@medicare.com / Patient123<br>
+                            Doctor: doctor@medicare.com / Doctor123
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sign up link -->
+                <p class="auth-footer">
+                    Don't have an account? 
+                    <a href="signup.html" class="auth-footer-link">Create Account</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

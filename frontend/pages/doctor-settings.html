@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medicare - Doctor Settings">
+    <title>Medicare - Doctor Settings</title>
+    
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/checkup.css">
+    <link rel="stylesheet" href="../css/doctor.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Desktop Sidebar -->
+        <aside class="sidebar sidebar-doctor">
+            <div class="sidebar-brand">
+                <div class="sidebar-logo">
+                    <i data-lucide="heart-pulse"></i>
+                </div>
+                <span class="sidebar-title">Medicare</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="sidebar-nav-list">
+                    <li>
+                        <a href="doctor-dashboard.html" class="sidebar-nav-item">
+                            <i data-lucide="layout-dashboard" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="doctor-patients.html" class="sidebar-nav-item">
+                            <i data-lucide="users" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Patients</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="doctor-settings.html" class="sidebar-nav-item active">
+                            <i data-lucide="settings" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <img src="../assets/images/doctor-avatar.svg" alt="Doctor" class="sidebar-user-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2220%22 fill=%22%237C3AED%22/%3E%3Ccircle cx=%2220%22 cy=%2215%22 r=%228%22 fill=%22%23FCD9B6%22/%3E%3Cellipse cx=%2220%22 cy=%2235%22 rx=%2212%22 ry=%228%22 fill=%22white%22/%3E%3C/svg%3E'">
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Dr. Sarah Smith</span>
+                        <span class="sidebar-user-role">Internal Medicine</span>
+                    </div>
+                    <button class="sidebar-logout" onclick="logout()" aria-label="Logout">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <header class="mobile-header mobile-only">
+                <h1 class="mobile-header-title">Settings</h1>
+            </header>
+
+            <!-- Page Header -->
+            <div class="page-header fade-in">
+                <h1 class="page-title desktop-only">Doctor Settings</h1>
+                <p class="page-subtitle">Manage your profile and preferences</p>
+            </div>
+
+            <!-- Settings Content -->
+            <div class="card fade-in" style="animation-delay: 0.1s;">
+                <!-- Avatar Section -->
+                <div class="settings-avatar-section">
+                    <img src="../assets/images/doctor-avatar.svg" alt="Profile Picture" class="settings-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%237C3AED%22/%3E%3Ccircle cx=%2250%22 cy=%2240%22 r=%2220%22 fill=%22%23FCD9B6%22/%3E%3Cellipse cx=%2250%22 cy=%2285%22 rx=%2230%22 ry=%2220%22 fill=%22white%22/%3E%3C/svg%3E'">
+                    <div class="settings-avatar-actions">
+                        <button class="btn btn-secondary btn-sm">
+                            <i data-lucide="upload"></i>
+                            Upload Photo
+                        </button>
+                        <button class="btn btn-ghost btn-sm">
+                            <i data-lucide="trash-2"></i>
+                            Remove
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Personal Information -->
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Personal Information</h3>
+                    <form id="doctorSettingsForm" class="settings-form">
+                        <div class="grid grid-2">
+                            <div class="form-group">
+                                <label for="settingsName" class="form-label required">Full Name</label>
+                                <input type="text" id="settingsName" class="form-input" value="Dr. Sarah Smith" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsEmail" class="form-label required">Email Address</label>
+                                <div class="flex gap-2 items-center">
+                                    <input type="email" id="settingsEmail" class="form-input" value="doctor@medicare.com" required disabled>
+                                    <button type="button" class="btn btn-secondary btn-sm" id="changeEmailBtn">
+                                        <i data-lucide="edit-2"></i>
+                                        Change
+                                    </button>
+                                </div>
+                                <p class="form-hint">Changing email requires verification</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-2">
+                            <div class="form-group">
+                                <label for="settingsSpecialty" class="form-label">Specialty</label>
+                                <input type="text" id="settingsSpecialty" class="form-input" value="Internal Medicine">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsLicense" class="form-label">License Number</label>
+                                <input type="text" id="settingsLicense" class="form-input" value="MD-2024-12345">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="settingsPhone" class="form-label">Phone Number</label>
+                            <input type="tel" id="settingsPhone" class="form-input" value="+1 (555) 987-6543">
+                        </div>
+                        <div class="form-group">
+                            <label for="settingsBio" class="form-label">Professional Bio</label>
+                            <textarea id="settingsBio" class="form-input form-textarea" rows="4">Board-certified Internal Medicine physician with over 15 years of experience in chronic disease management. Specializing in diabetes care, hypertension management, and preventive medicine.</textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Save Button -->
+                <div class="settings-form-actions">
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" form="doctorSettingsForm" class="btn btn-primary">
+                        <i data-lucide="save"></i>
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+
+            <!-- Security Section -->
+            <div class="card fade-in mt-6" style="animation-delay: 0.2s;">
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Security</h3>
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h4 class="font-semibold">Password</h4>
+                            <p class="text-sm text-muted">Last changed 45 days ago</p>
+                        </div>
+                        <button class="btn btn-secondary btn-sm">
+                            <i data-lucide="key"></i>
+                            Change Password
+                        </button>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h4 class="font-semibold">Two-Factor Authentication</h4>
+                            <p class="text-sm text-muted">Add an extra layer of security</p>
+                        </div>
+                        <button class="btn btn-outline btn-sm" id="enable2FABtn">
+                            <i data-lucide="shield"></i>
+                            Enable 2FA
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notification Preferences -->
+            <div class="card fade-in mt-6" style="animation-delay: 0.3s;">
+                <div class="settings-section">
+                    <h3 class="settings-section-title">Notification Preferences</h3>
+                    <div class="form-group">
+                        <label class="form-check">
+                            <input type="checkbox" class="form-check-input" checked>
+                            <span class="form-check-label">Email notifications for new patient submissions</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-check">
+                            <input type="checkbox" class="form-check-input">
+                            <span class="form-check-label">SMS alerts for urgent cases</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav class="bottom-nav mobile-only">
+            <a href="doctor-dashboard.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="layout-dashboard"></i></span>
+                <span class="bottom-nav-label">Dashboard</span>
+            </a>
+            <a href="doctor-patients.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="users"></i></span>
+                <span class="bottom-nav-label">Patients</span>
+            </a>
+            <a href="doctor-settings.html" class="bottom-nav-item active">
+                <span class="bottom-nav-icon"><i data-lucide="settings"></i></span>
+                <span class="bottom-nav-label">Settings</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="toast-container"></div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/doctor.js"></script>
+    <script>
+        onDOMReady(() => {
+            const form = document.getElementById('doctorSettingsForm');
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const submitBtn = document.querySelector('.settings-form-actions .btn-primary');
+                    setButtonLoading(submitBtn, true);
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    setButtonLoading(submitBtn, false);
+                    showToast('Settings saved successfully!', 'success');
+                });
+            }
+
+            // Change email button handler
+            const changeEmailBtn = document.getElementById('changeEmailBtn');
+            if (changeEmailBtn) {
+                changeEmailBtn.addEventListener('click', () => {
+                    const newEmail = prompt('Enter your new email address:');
+                    if (newEmail && newEmail.trim()) {
+                        if (validateEmail(newEmail.trim())) {
+                            showToast('Verification email sent to ' + newEmail.trim(), 'info');
+                        } else {
+                            showToast('Please enter a valid email address', 'error');
+                        }
+                    }
+                });
+            }
+
+            // 2FA button handler - not implemented yet
+            const enable2FABtn = document.getElementById('enable2FABtn');
+            if (enable2FABtn) {
+                enable2FABtn.addEventListener('click', () => {
+                    showToast('Two-Factor Authentication is not implemented yet', 'info');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

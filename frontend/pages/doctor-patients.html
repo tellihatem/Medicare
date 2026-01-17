@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medicare - All Patients">
+    <title>Medicare - Patients</title>
+    
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/doctor.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Desktop Sidebar -->
+        <aside class="sidebar sidebar-doctor">
+            <div class="sidebar-brand">
+                <div class="sidebar-logo">
+                    <i data-lucide="heart-pulse"></i>
+                </div>
+                <span class="sidebar-title">Medicare</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="sidebar-nav-list">
+                    <li>
+                        <a href="doctor-dashboard.html" class="sidebar-nav-item">
+                            <i data-lucide="layout-dashboard" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="doctor-patients.html" class="sidebar-nav-item active">
+                            <i data-lucide="users" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Patients</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="doctor-settings.html" class="sidebar-nav-item">
+                            <i data-lucide="settings" class="sidebar-nav-icon"></i>
+                            <span class="sidebar-nav-label">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <img src="../assets/images/doctor-avatar.svg" alt="Doctor" class="sidebar-user-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2220%22 fill=%22%237C3AED%22/%3E%3Ccircle cx=%2220%22 cy=%2215%22 r=%228%22 fill=%22%23FCD9B6%22/%3E%3Cellipse cx=%2220%22 cy=%2235%22 rx=%2212%22 ry=%228%22 fill=%22white%22/%3E%3C/svg%3E'">
+                    <div class="sidebar-user-info">
+                        <span class="sidebar-user-name">Dr. Sarah Smith</span>
+                        <span class="sidebar-user-role">Internal Medicine</span>
+                    </div>
+                    <button class="sidebar-logout" onclick="logout()" aria-label="Logout">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Mobile Header -->
+            <header class="mobile-header mobile-only">
+                <h1 class="mobile-header-title">Patients</h1>
+                <div class="mobile-header-actions">
+                    <button class="btn btn-ghost btn-icon" aria-label="Search">
+                        <i data-lucide="search"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Page Header -->
+            <div class="page-header fade-in">
+                <h1 class="page-title desktop-only">All Patients</h1>
+                <p class="page-subtitle">Manage and review your assigned patients</p>
+            </div>
+
+            <!-- Search and Filters -->
+            <section class="patients-search fade-in" style="animation-delay: 0.1s;">
+                <div class="dashboard-search">
+                    <i data-lucide="search" class="dashboard-search-icon"></i>
+                    <input type="text" class="dashboard-search-input" placeholder="Search patients by name...">
+                </div>
+                <div class="patients-filter">
+                    <button class="filter-chip active" data-filter="all">All Patients</button>
+                    <button class="filter-chip" data-filter="pending">
+                        <span class="notification-dot" style="position: static; width: 8px; height: 8px; border: none;"></span>
+                        Pending Review
+                    </button>
+                    <button class="filter-chip" data-filter="reviewed">Reviewed</button>
+                </div>
+            </section>
+
+            <!-- Patients Grid -->
+            <section class="patients-grid fade-in" style="animation-delay: 0.15s;">
+                <!-- Patient 1 - Pending -->
+                <div class="card patient-grid-card" data-status="pending" onclick="location.href='doctor-review.html?id=p001'">
+                    <div class="patient-grid-card-header">
+                        <img src="../assets/images/patient-1.svg" alt="John Doe" class="patient-grid-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 56 56%22%3E%3Ccircle cx=%2228%22 cy=%2228%22 r=%2228%22 fill=%22%23DBEAFE%22/%3E%3Ccircle cx=%2228%22 cy=%2222%22 r=%2212%22 fill=%22%233B82F6%22/%3E%3Cellipse cx=%2228%22 cy=%2248%22 rx=%2218%22 ry=%2212%22 fill=%22%233B82F6%22/%3E%3C/svg%3E'">
+                        <div class="patient-grid-info">
+                            <h4>John Doe</h4>
+                            <p>Age 45 • Hypertension</p>
+                        </div>
+                        <span class="badge badge-warning">New</span>
+                    </div>
+                    <div class="patient-grid-stats">
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">8</div>
+                            <div class="patient-grid-stat-label">Checkups</div>
+                        </div>
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">2h</div>
+                            <div class="patient-grid-stat-label">Last Activity</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient 2 - Pending -->
+                <div class="card patient-grid-card" data-status="pending" onclick="location.href='doctor-review.html?id=p002'">
+                    <div class="patient-grid-card-header">
+                        <img src="../assets/images/patient-2.svg" alt="Jane Wilson" class="patient-grid-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 56 56%22%3E%3Ccircle cx=%2228%22 cy=%2228%22 r=%2228%22 fill=%22%23FCE7F3%22/%3E%3Ccircle cx=%2228%22 cy=%2222%22 r=%2212%22 fill=%22%23EC4899%22/%3E%3Cellipse cx=%2228%22 cy=%2248%22 rx=%2218%22 ry=%2212%22 fill=%22%23EC4899%22/%3E%3C/svg%3E'">
+                        <div class="patient-grid-info">
+                            <h4>Jane Wilson</h4>
+                            <p>Age 38 • Diabetes</p>
+                        </div>
+                        <span class="badge badge-warning">New</span>
+                    </div>
+                    <div class="patient-grid-stats">
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">12</div>
+                            <div class="patient-grid-stat-label">Checkups</div>
+                        </div>
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">4h</div>
+                            <div class="patient-grid-stat-label">Last Activity</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient 3 - Pending -->
+                <div class="card patient-grid-card" data-status="pending" onclick="location.href='doctor-review.html?id=p003'">
+                    <div class="patient-grid-card-header">
+                        <img src="../assets/images/patient-3.svg" alt="Robert Chen" class="patient-grid-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 56 56%22%3E%3Ccircle cx=%2228%22 cy=%2228%22 r=%2228%22 fill=%22%23D1FAE5%22/%3E%3Ccircle cx=%2228%22 cy=%2222%22 r=%2212%22 fill=%22%2310B981%22/%3E%3Cellipse cx=%2228%22 cy=%2248%22 rx=%2218%22 ry=%2212%22 fill=%22%2310B981%22/%3E%3C/svg%3E'">
+                        <div class="patient-grid-info">
+                            <h4>Robert Chen</h4>
+                            <p>Age 52 • Heart Disease</p>
+                        </div>
+                        <span class="badge badge-warning">New</span>
+                    </div>
+                    <div class="patient-grid-stats">
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">15</div>
+                            <div class="patient-grid-stat-label">Checkups</div>
+                        </div>
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">5h</div>
+                            <div class="patient-grid-stat-label">Last Activity</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient 4 - Reviewed -->
+                <div class="card patient-grid-card" data-status="reviewed" onclick="location.href='doctor-review.html?id=p004'">
+                    <div class="patient-grid-card-header">
+                        <img src="../assets/images/patient-4.svg" alt="Emily Brown" class="patient-grid-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 56 56%22%3E%3Ccircle cx=%2228%22 cy=%2228%22 r=%2228%22 fill=%22%23FEF3C7%22/%3E%3Ccircle cx=%2228%22 cy=%2222%22 r=%2212%22 fill=%22%23F59E0B%22/%3E%3Cellipse cx=%2228%22 cy=%2248%22 rx=%2218%22 ry=%2212%22 fill=%22%23F59E0B%22/%3E%3C/svg%3E'">
+                        <div class="patient-grid-info">
+                            <h4>Emily Brown</h4>
+                            <p>Age 61 • Hypertension</p>
+                        </div>
+                    </div>
+                    <div class="patient-grid-stats">
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">20</div>
+                            <div class="patient-grid-stat-label">Checkups</div>
+                        </div>
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">1d</div>
+                            <div class="patient-grid-stat-label">Last Activity</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient 5 - Reviewed -->
+                <div class="card patient-grid-card" data-status="reviewed" onclick="location.href='doctor-review.html?id=p005'">
+                    <div class="patient-grid-card-header">
+                        <img src="../assets/images/patient-5.svg" alt="Michael Lee" class="patient-grid-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 56 56%22%3E%3Ccircle cx=%2228%22 cy=%2228%22 r=%2228%22 fill=%22%23E0E7FF%22/%3E%3Ccircle cx=%2228%22 cy=%2222%22 r=%2212%22 fill=%22%236366F1%22/%3E%3Cellipse cx=%2228%22 cy=%2248%22 rx=%2218%22 ry=%2212%22 fill=%22%236366F1%22/%3E%3C/svg%3E'">
+                        <div class="patient-grid-info">
+                            <h4>Michael Lee</h4>
+                            <p>Age 44 • Diabetes</p>
+                        </div>
+                    </div>
+                    <div class="patient-grid-stats">
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">9</div>
+                            <div class="patient-grid-stat-label">Checkups</div>
+                        </div>
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">2d</div>
+                            <div class="patient-grid-stat-label">Last Activity</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient 6 - Reviewed -->
+                <div class="card patient-grid-card" data-status="reviewed" onclick="location.href='doctor-review.html?id=p006'">
+                    <div class="patient-grid-card-header">
+                        <img src="../assets/images/patient-6.svg" alt="Sarah Johnson" class="patient-grid-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 56 56%22%3E%3Ccircle cx=%2228%22 cy=%2228%22 r=%2228%22 fill=%22%23FECACA%22/%3E%3Ccircle cx=%2228%22 cy=%2222%22 r=%2212%22 fill=%22%23EF4444%22/%3E%3Cellipse cx=%2228%22 cy=%2248%22 rx=%2218%22 ry=%2212%22 fill=%22%23EF4444%22/%3E%3C/svg%3E'">
+                        <div class="patient-grid-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Age 55 • Multiple</p>
+                        </div>
+                    </div>
+                    <div class="patient-grid-stats">
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">25</div>
+                            <div class="patient-grid-stat-label">Checkups</div>
+                        </div>
+                        <div class="patient-grid-stat">
+                            <div class="patient-grid-stat-value">3d</div>
+                            <div class="patient-grid-stat-label">Last Activity</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav class="bottom-nav mobile-only">
+            <a href="doctor-dashboard.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="layout-dashboard"></i></span>
+                <span class="bottom-nav-label">Dashboard</span>
+            </a>
+            <a href="doctor-patients.html" class="bottom-nav-item active">
+                <span class="bottom-nav-icon"><i data-lucide="users"></i></span>
+                <span class="bottom-nav-label">Patients</span>
+            </a>
+            <a href="doctor-settings.html" class="bottom-nav-item">
+                <span class="bottom-nav-icon"><i data-lucide="settings"></i></span>
+                <span class="bottom-nav-label">Settings</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="toast-container"></div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/doctor.js"></script>
+</body>
+</html>
