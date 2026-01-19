@@ -149,12 +149,12 @@ The application is designed to be **smooth, responsive, secure, and accessible**
 
 <p align="center">
   <strong>Desktop View</strong><br>
-  <img src="assets/images/treatmenthistory-desktop.png" width="700">
+  <img src="assets/images/treatementhistory-desktop.png" width="700">
 </p>
 
 <p align="center">
   <strong>Mobile View</strong><br>
-  <img src="assets/images/treatmenthistory-mobile.png" width="300">
+  <img src="assets/images/treatementhistory-mobile.png" width="300">
 </p>
 
 ---
@@ -163,12 +163,12 @@ The application is designed to be **smooth, responsive, secure, and accessible**
 
 <p align="center">
   <strong>Desktop View</strong><br>
-  <img src="assets/images/treatmenthistory-desktop.png" width="700">
+  <img src="assets/images/settings-desktop.png" width="700">
 </p>
 
 <p align="center">
   <strong>Mobile View</strong><br>
-  <img src="assets/images/treatmenthistory-mobile.png" width="300">
+  <img src="assets/images/settings-mobile.png" width="300">
 </p>
 
 ---
