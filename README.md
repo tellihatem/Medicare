@@ -91,27 +91,22 @@ The application is designed to be **smooth, responsive, secure, and accessible**
 <h3 align="center">Forgot Password</h3>
 
 <p align="center">
-  <strong>Desktop View</strong><br>
-  <img src="assets/images/forgotpassword-desktop.png" width="700">
+  <strong>Email Form</strong><br>
+  <img src="assets/images/forgotpassword-mobile.png" width="700">
 </p>
 
 <p align="center">
-  <strong>Mobile View</strong><br>
-  <img src="assets/images/forgotpassword-mobile.png" width="300">
+  <strong>Success Form</strong><br>
+  <img src="assets/images/forgotpassword-desktop.png" width="300">
 </p>
 
 ---
 
-<h3 align="center">Verify Email (OTP)</h3>
+<h3 align="center">Verify Email</h3>
 
 <p align="center">
-  <strong>Desktop View</strong><br>
+  <strong>Email Form</strong><br>
   <img src="assets/images/verifyemail-desktop.png" width="700">
-</p>
-
-<p align="center">
-  <strong>Mobile View</strong><br>
-  <img src="assets/images/verifyemail-mobile.png" width="300">
 </p>
 
 ---
