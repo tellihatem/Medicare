@@ -92,12 +92,12 @@ The application is designed to be **smooth, responsive, secure, and accessible**
 
 <p align="center">
   <strong>Email Form</strong><br>
-  <img src="assets/images/forgotpassword-mobile.png" width="700">
+  <img src="assets/images/forgotpassword-mobile.png" width="300">
 </p>
 
 <p align="center">
   <strong>Success Form</strong><br>
-  <img src="assets/images/forgotpassword-desktop.png" width="300">
+  <img src="assets/images/forgotpassword-desktop.png" width="700">
 </p>
 
 ---
@@ -105,7 +105,7 @@ The application is designed to be **smooth, responsive, secure, and accessible**
 <h3 align="center">Verify Email</h3>
 
 <p align="center">
-  <strong>Email Form</strong><br>
+  <strong>OTP Form</strong><br>
   <img src="assets/images/verifyemail-desktop.png" width="700">
 </p>
 
