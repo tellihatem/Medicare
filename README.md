@@ -143,6 +143,7 @@ The application is designed to be **smooth, responsive, secure, and accessible**
   <strong>Mobile View</strong><br>
   <img src="assets/images/newcheckup-mobile.png" width="300">
 </p>
+
 ---
 
 <h3 align="center">Treatment History</h3>
