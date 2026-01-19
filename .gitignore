@@ -3,6 +3,7 @@
 
 # Images directory
 images/
+other/
 
 # Markdown files in root
 *.md
