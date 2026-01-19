@@ -60,156 +60,146 @@ The application is designed to be **smooth, responsive, secure, and accessible**
 
 ## 1️⃣ Authentication Screens
 
-<h3 align="center">Login</h3>
+<!-- Desktop Screens -->
+<h4 align="center">💻 Desktop Screens</h4>
+<table>
+<tr>
+<td align="center" valign="top">
+<h5>Login</h5>
+<img src="assets/images/login-desktop.png" width="700">
+</td>
+<td align="center" valign="top">
+<h5>Signup</h5>
+<img src="assets/images/signup-desktop.png" width="700">
+</td>
+</tr>
+<tr>
+<td align="center" valign="top">
+<h5>Forgot Password</h5>
+<img src="assets/images/forgotpassword-desktop.png" width="700">
+</td>
+<td align="center" valign="top">
+<h5>Verify Email</h5>
+<img src="assets/images/verifyemail-desktop.png" width="700">
+</td>
+</tr>
+</table>
 
-<p align="center">
-  <strong>Desktop View</strong><br>
-  <img src="assets/images/login-desktop.png" width="700">
-</p>
-
-<p align="center">
-  <strong>Mobile View</strong><br>
-  <img src="assets/images/login-mobile.png" width="300">
-</p>
-
----
-
-<h3 align="center">Signup</h3>
-
-<p align="center">
-  <strong>Desktop View</strong><br>
-  <img src="assets/images/signup-desktop.png" width="700">
-</p>
-
-<p align="center">
-  <strong>Mobile View</strong><br>
-  <img src="assets/images/signup-mobile.png" width="300">
-</p>
-
----
-
-<h3 align="center">Forgot Password</h3>
-
-<p align="center">
-  <strong>Email Form</strong><br>
-  <img src="assets/images/forgotpassword-mobile.png" width="300">
-</p>
-
-<p align="center">
-  <strong>Success Form</strong><br>
-  <img src="assets/images/forgotpassword-desktop.png" width="700">
-</p>
-
----
-
-<h3 align="center">Verify Email</h3>
-
-<p align="center">
-  <strong>OTP Form</strong><br>
-  <img src="assets/images/verifyemail-desktop.png" width="700">
-</p>
+<!-- Mobile Screens -->
+<h4 align="center">📱 Mobile Screens</h4>
+<table>
+<tr>
+<td align="center" valign="top">
+<h5>Login</h5>
+<img src="assets/images/login-mobile.png" width="300">
+</td>
+<td align="center" valign="top">
+<h5>Signup</h5>
+<img src="assets/images/signup-mobile.png" width="300">
+</td>
+<td align="center" valign="top">
+<h5>Forgot Password</h5>
+<img src="assets/images/forgotpassword-mobile.png" width="300">
+</td>
+</tr>
+</table>
 
 ---
 
 ## 2️⃣ Patient Screens 👤
 
-<h3 align="center">Dashboard</h3>
+<!-- Desktop Screens -->
+<h4 align="center">💻 Desktop Screens</h4>
+<table>
+<tr>
+<td align="center" valign="top">
+<h5>Dashboard</h5>
+<img src="assets/images/dashboard-desktop.png" width="700">
+</td>
+<td align="center" valign="top">
+<h5>New Checkup</h5>
+<img src="assets/images/newcheckup-desktop.png" width="700">
+</td>
+</tr>
+<tr>
+<td align="center" valign="top">
+<h5>Treatment History</h5>
+<img src="assets/images/treatementhistory-desktop.png" width="700">
+</td>
+<td align="center" valign="top">
+<h5>Settings</h5>
+<img src="assets/images/settings-desktop.png" width="700">
+</td>
+</tr>
+</table>
 
-<p align="center">
-  <strong>Desktop View</strong><br>
-  <img src="assets/images/dashboard-desktop.png" width="700">
-</p>
+<!-- Mobile Screens -->
+<h4 align="center">📱 Mobile Screens</h4>
 
-<p align="center">
-  <strong>Mobile View</strong><br>
-  <img src="assets/images/dashboard-mobile.png" width="300">
-</p>
-
----
-
-<h3 align="center">New Checkup</h3>
-
-<p align="center">
-  <strong>Desktop View</strong><br>
-  <img src="assets/images/newcheckup-desktop.png" width="700">
-</p>
-
-<p align="center">
-  <strong>Mobile View</strong><br>
-  <img src="assets/images/newcheckup-mobile.png" width="300">
-</p>
-
----
-
-<h3 align="center">Treatment History</h3>
-
-<p align="center">
-  <strong>Desktop View</strong><br>
-  <img src="assets/images/treatementhistory-desktop.png" width="700">
-</p>
-
-<p align="center">
-  <strong>Mobile View</strong><br>
-  <img src="assets/images/treatementhistory-mobile.png" width="300">
-</p>
-
----
-
-<h3 align="center">Settings</h3>
-
-<p align="center">
-  <strong>Desktop View</strong><br>
-  <img src="assets/images/settings-desktop.png" width="700">
-</p>
-
-<p align="center">
-  <strong>Mobile View</strong><br>
-  <img src="assets/images/settings-mobile.png" width="300">
-</p>
+<table>
+<tr>
+<td align="center" valign="top">
+<h5>Dashboard</h5>
+<img src="assets/images/dashboard-mobile.png" width="300">
+</td>
+<td align="center" valign="top">
+<h5>New Checkup</h5>
+<img src="assets/images/newcheckup-mobile.png" width="300">
+</td>
+<td align="center" valign="top">
+<h5>Treatment History</h5>
+<img src="assets/images/treatementhistory-mobile.png" width="300">
+</td>
+<td align="center" valign="top">
+<h5>Settings</h5>
+<img src="assets/images/settings-mobile.png" width="300">
+</td>
+</tr>
+</table>
 
 ---
 
 ## 3️⃣ Doctor Screens 👨‍⚕️
 
-<h3 align="center">Dashboard</h3>
+<!-- Desktop Screens -->
+<h4 align="center">💻 Desktop Screens</h4>
+<table>
+<tr>
+<td align="center" valign="top">
+<h5>Dashboard</h5>
+<img src="assets/images/doctor-desktop.png" width="700">
+</td>
+<td align="center" valign="top">
+<h5>Patients</h5>
+<img src="assets/images/patients-desktop.png" width="700">
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" colspan="2">
+<h5>Settings</h5>
+<img src="assets/images/doctorsettings-desktop.png" width="700">
+</td>
+</tr>
+</table>
 
-<p align="center">
-  <strong>Desktop View</strong><br>
-  <img src="assets/images/doctor-desktop.png" width="700">
-</p>
-
-<p align="center">
-  <strong>Mobile View</strong><br>
-  <img src="assets/images/doctor-mobile.png" width="300">
-</p>
-
----
-
-<h3 align="center">Patients</h3>
-
-<p align="center">
-  <strong>Desktop View</strong><br>
-  <img src="assets/images/patients-desktop.png" width="700">
-</p>
-
-<p align="center">
-  <strong>Mobile View</strong><br>
-  <img src="assets/images/patients-mobile.png" width="300">
-</p>
-
----
-
-<h3 align="center">Settings</h3>
-
-<p align="center">
-  <strong>Desktop View</strong><br>
-  <img src="assets/images/doctorsettings-desktop.png" width="700">
-</p>
-
-<p align="center">
-  <strong>Mobile View</strong><br>
-  <img src="assets/images/doctorsettings-mobile.png" width="300">
-</p>
+<!-- Mobile Screens -->
+<h4 align="center">📱 Mobile Screens</h4>
+<table>
+<tr>
+<td align="center" valign="top">
+<h5>Dashboard</h5>
+<img src="assets/images/doctor-mobile.png" width="300">
+</td>
+<td align="center" valign="top">
+<h5>Patients</h5>
+<img src="assets/images/patients-mobile.png" width="300">
+</td>
+<td align="center" valign="top">
+<h5>Settings</h5>
+<img src="assets/images/doctorsettings-mobile.png" width="300">
+</td>
+</tr>
+</table>
 
 ---
 
